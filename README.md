@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# NetConstruct React Developer Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The purpose of this assessment is to demonstrate:
 
-In the project directory, you can run:
+1. An understanding of React syntax
+2. Working with an API
+3. Storing and manipulating React state
+4. Structuring an application with multiple components
+5. HTML and CSS ability
+6. Responsive web development ability
 
-### `yarn start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to run the provided solution the following software will need to be installed:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- NodeJS (LTS) [here.](https://nodejs.org/en/)
+- A code editor (We recommend VS Code [here.](https://code.visualstudio.com/))
 
-### `yarn test`
+### Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fork and clone the repository or download and extract the ZIP file here.
+2. Open the repository folder and install the dependencies using `yarn` or `npm install`.
+3. Run the development server using `yarn start` or `npm start`.
 
-### `yarn build`
+The repository contains a `App.jsx` file inside the `components` folder; this should be the starting point for your exercise. Please feel free to create more components to structure your app in a logical manner.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The repository also contains an API endpoint mocked using MirageJS. This can be accessed when running the development server at the URL `/api/posts`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We would love to see code comments to help explain your approach and thought process, this will also be discussed in a follow-up technical interview.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Finally, the use of third party libraries and/or components is acceptable - however, please ensure that you are still demonstrating the skills we have outlined above.
 
-### `yarn eject`
+### Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+These are the minimum requirements for the exercies:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Retrieve the data from the mock API.
+1. Output the data in a list, including properties from the data that are appropriate for a list view.
+1. Implement a category filter - this can be single or multi-select.
+1. Implement pagination - this can be traditional numbered pages or "load more".
+1. Use semantic markup where possible.
+1. Create a responsive layout with HTML and CSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Additional Exercises
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you have time you then demonstrating any of the following would be considered as a bonus:
 
-## Learn More
+1. Use client-side routing to create a "detail" page.
+1. Persist filter state in the query string.
+1. Include animated transitions between application state, e.g. when filtering.
+1. Convert the application to use TypeScript instead of JavaScript.
+1. Use a CSS preprocessor or CSS-in-JS rather than plain CSS.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Submission
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please submit your completed exercise either by supplying the URL of your forked repository or by including a ZIP archive of your local folder - please ensure you **do not** include the `node_modules` folder.
