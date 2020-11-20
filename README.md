@@ -20,7 +20,7 @@ In order to run the provided solution the following software will need to be ins
 
 ### Setup
 
-1. Fork and clone the repository or download and extract the ZIP file here.
+1. Fork and clone the repository or download and extract the ZIP file [here.](https://github.com/netconstruct/react-developer-assessment/archive/master.zip)
 2. Open the repository folder and install the dependencies using `yarn` or `npm install`.
 3. Run the development server using `yarn start` or `npm start`.
 
