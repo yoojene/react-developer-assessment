@@ -30,7 +30,7 @@ The repository also contains an API endpoint mocked using MirageJS. This can be 
 
 We would love to see code comments to help explain your approach and thought process, this will also be discussed in a follow-up technical interview.
 
-Finally, the use of third party libraries and/or components is acceptable - however, please ensure that you are still demonstrating the skills we have outlined above.
+Finally, the use of third party libraries and/or components is permitted - and in some cases encouraged. However, please ensure that you are still demonstrating the skills we have outlined above.
 
 ### Requirements
 
