@@ -45,7 +45,7 @@ These are the minimum requirements for the exercies:
 
 ### Additional Exercises
 
-If you have time you then demonstrating any of the following would be considered as a bonus:
+If you have time then demonstrating any of the following would be considered as a bonus:
 
 1. Use client-side routing to create a "detail" page.
 1. Persist filter state in the query string.
