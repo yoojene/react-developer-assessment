@@ -1,0 +1,7 @@
+.Author{
+  display: flex;
+}
+
+.AuthorHeading {
+  align-self: flex-end;
+}
