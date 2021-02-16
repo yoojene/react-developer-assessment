@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { IonAvatar } from '@ionic/react'
 import cx from 'classnames';
 import styles from '../styles/Author.module.css'
+
 const Author = ({author}) => {
-  
 
   return (
     <div className={cx(styles.Author)}>

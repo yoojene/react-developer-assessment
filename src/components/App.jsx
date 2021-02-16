@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from 'react';
-import ListGroup from 'react-bootstrap/ListGroup'
+import PropTypes from 'prop-types'
 import PostList from './PostList';
-
-
-function App() {
+import cx from 'classnames';
+import styles from '../styles/App.module.css';
+const App = () => {
 
   let [posts, setPosts] = useState([])
 
@@ -15,10 +15,21 @@ function App() {
   }, [])
 
   return  (
-    <ListGroup>
+    <>
+      <header>
+        <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
+      </header>
       <PostList posts={posts}></PostList>
-    </ListGroup>
+      <footer>
+        <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
+      </footer>
+    </>
   )
+
+}
+
+PostList.propTypes = {
+  posts: PropTypes.array
 }
 
 export default App;

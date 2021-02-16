@@ -1,26 +1,20 @@
 import { React }  from 'react';
 import PropTypes from 'prop-types';
 import Post from './Post';
-import Author from './Author';
 
 const PostList = ({posts}) => {
-
   return (
-    <div>
+    <section>
       {posts.map(post => (
-      <>
-       
-      <Author author={post.author}></Author>
-      <br></br>
-      <Post post={post}></Post>     
-      </>)
+      <Post key={post.id} post={post}></Post>)
       )}
-    </div>
+    </section>
   )
 }
 
 PostList.propTypes = {
   posts: PropTypes.array
+
 
 }
 
