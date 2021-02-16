@@ -2,9 +2,9 @@ import { React, useState, useEffect } from 'react';
 import BookList from './BookList';
 import cx from 'classnames';
 import styles from '../styles/App.module.css';
+import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
 const App = () => {
   let [posts, setPosts] = useState([]);
-  // let [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch('/api/posts')
@@ -12,10 +12,7 @@ const App = () => {
       .then((json) => setPosts(json.posts));
   }, []);
 
-  const allCategories = posts.map((post) => post.categories).flat();
-  const categories = [...new Set(allCategories.map((data) => data.name))];
-  categories.unshift('Select Category');
-  // setCategories(categories);
+  const categories = getUniqueCategoryNames(posts);
 
   return (
     <>
