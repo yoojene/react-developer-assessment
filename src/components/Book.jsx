@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Author from './Author';
-const Post = ({ post }) => {
+const Book = ({ post }) => {
   return (
     <Card>
       <Card.Title>
@@ -16,9 +16,9 @@ const Post = ({ post }) => {
   );
 };
 
-Post.propTypes = {
+Book.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
 };
 
-export default Post;
+export default Book;
