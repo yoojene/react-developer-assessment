@@ -17,7 +17,6 @@ const App = () => {
   const [perPage] = useState(5);
   const [isLoading, setIsLoading] = useState(false);
 
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -27,7 +26,7 @@ const App = () => {
       const data = json.posts;
       const pageData = data.slice(offset, offset + perPage);
       setPosts(pageData);
-      setIsLoading(false)
+      setIsLoading(false);
     };
     fetchData();
   }, [resetPosts, offset, perPage]);
@@ -56,17 +55,19 @@ const App = () => {
       <header>
         <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
       </header>
-      {isLoading ? <Loading></Loading> : (
+      {isLoading ? (
+        <Loading></Loading>
+      ) : (
         <>
-         <BookList
-        onCategoryChange={handleCategoryChange}
-        categories={categories}
-        posts={posts}
-      ></BookList>
-     </>
+          <BookList
+            onCategoryChange={handleCategoryChange}
+            categories={categories}
+            posts={posts}
+          ></BookList>
+        </>
       )}
-       <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
-     
+      <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
+
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
       </footer>
