@@ -12,17 +12,14 @@ const App = () => {
   const [resetPosts, setResetPosts] = useState(false);
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(5);
-  let [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('/api/posts');
       const json = await res.json();
-
       const data = json.posts;
       const pageData = data.slice(offset, offset + perPage);
       setPosts(pageData);
-      setPageCount(Math.ceil(data.length / perPage));
     };
     fetchData();
   }, [resetPosts, offset, perPage]);
