@@ -1,22 +1,19 @@
-import { React }  from 'react';
+import { React } from 'react';
 import PropTypes from 'prop-types';
 import Post from './Post';
 
-const PostList = ({posts}) => {
+const PostList = ({ posts }) => {
   return (
     <section>
-      {posts.map(post => (
-      <Post key={post.id} post={post}></Post>)
-      )}
+      {posts.map((post) => (
+        <Post key={post.id} post={post}></Post>
+      ))}
     </section>
-  )
-}
+  );
+};
 
 PostList.propTypes = {
-  posts: PropTypes.array
+  posts: PropTypes.array,
+};
 
-
-}
-
-export default PostList
-
+export default PostList;
