@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BookList from './BookList';
 import LoadMoreButton from './LoadMoreButton';
+import BookDetails from './BookDetails';
 import Loading from './Loading';
 import Fade from 'react-reveal/Fade';
 import cx from 'classnames';
@@ -51,27 +53,36 @@ const App = () => {
   };
 
   return (
-    <Fade>
-      <header>
-        <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
-      </header>
-      {isLoading ? (
-        <Loading></Loading>
-      ) : (
-        <>
-          <BookList
-            onCategoryChange={handleCategoryChange}
-            categories={categories}
-            posts={posts}
-          ></BookList>
-        </>
-      )}
-      <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
+    <Router>
+      <Fade>
+        <header>
+          <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
+        </header>
+        <Switch>
+          <Route path="/books/:postId">
+            <BookDetails posts={posts}></BookDetails>
+          </Route>
 
-      <footer>
-        <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
-      </footer>
-    </Fade>
+          <Route exact path="/">
+            {isLoading ? (
+              <Loading></Loading>
+            ) : (
+              <>
+                <BookList
+                  onCategoryChange={handleCategoryChange}
+                  categories={categories}
+                  posts={posts}
+                ></BookList>
+              </>
+            )}
+            <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
+          </Route>
+        </Switch>
+        <footer>
+          <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
+        </footer>
+      </Fade>
+    </Router>
   );
 };
 
