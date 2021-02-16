@@ -7,6 +7,7 @@ import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategor
 
 const App = () => {
   let [posts, setPosts] = useState([]);
+  let [categories, setCategories] = useState([])
   let [resetPosts, setResetPosts] = useState(false);
 
   useEffect(() => {
@@ -18,7 +19,10 @@ const App = () => {
     fetchData();
   }, [resetPosts]);
 
-  const categories = getUniqueCategoryNames(posts);
+  useEffect(() => {
+    setCategories(getUniqueCategoryNames(posts));
+  }, [posts]);
+
 
   const handleCategoryChange = (category) => {
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
@@ -40,7 +44,6 @@ const App = () => {
         onCategoryChange={handleCategoryChange}
         categories={categories}
         posts={posts}
-        // filteredPosts={filteredPosts}
       ></BookList>
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
