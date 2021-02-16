@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import BookList from './BookList';
 import LoadMoreButton from './LoadMoreButton';
+import Fade from 'react-reveal/Fade';
 import cx from 'classnames';
 import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
@@ -44,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <Fade>
       <header>
         <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
       </header>
@@ -57,7 +58,7 @@ const App = () => {
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
       </footer>
-    </>
+    </Fade>
   );
 };
 
