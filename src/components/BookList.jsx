@@ -2,6 +2,8 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import FilterBar from './FilterBar';
 import Book from './Book';
+import cx from 'classnames';
+import styles from '../styles/BookList.module.css';
 
 const BookList = ({ posts, categories, onCategoryChange }) => {
   const handleCategoryChange = (category) => {
@@ -10,7 +12,7 @@ const BookList = ({ posts, categories, onCategoryChange }) => {
 
   return (
     <>
-      <header>
+      <header className={cx(styles.BookListHeader)}>
         <FilterBar
           onCategoryChange={handleCategoryChange}
           categories={categories}

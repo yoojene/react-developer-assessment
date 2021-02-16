@@ -1,28 +1,35 @@
 import { React, useState, useEffect } from 'react';
 import BookList from './BookList';
+import LoadMoreButton from './LoadMoreButton';
 import cx from 'classnames';
 import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
 import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategory';
 
 const App = () => {
-  let [posts, setPosts] = useState([]);
-  let [categories, setCategories] = useState([])
-  let [resetPosts, setResetPosts] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [resetPosts, setResetPosts] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(5);
+  let [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('/api/posts');
       const json = await res.json();
-      setPosts(json.posts);
+
+      const data = json.posts;
+      const pageData = data.slice(offset, offset + perPage);
+      setPosts(pageData);
+      setPageCount(Math.ceil(data.length / perPage));
     };
     fetchData();
-  }, [resetPosts]);
+  }, [resetPosts, offset, perPage]);
 
   useEffect(() => {
     setCategories(getUniqueCategoryNames(posts));
   }, [posts]);
-
 
   const handleCategoryChange = (category) => {
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
@@ -34,9 +41,13 @@ const App = () => {
     }
   };
 
+  const handleClick = (e) => {
+    setOffset(offset + 5);
+    setCategories(getUniqueCategoryNames(posts));
+  };
+
   return (
     <>
-      {posts.length}
       <header>
         <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
       </header>
@@ -45,6 +56,7 @@ const App = () => {
         categories={categories}
         posts={posts}
       ></BookList>
+      <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
       </footer>
