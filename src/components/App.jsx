@@ -7,6 +7,7 @@ import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategor
 
 const App = () => {
   let [posts, setPosts] = useState([]);
+  let [resetPosts, setResetPosts] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +16,7 @@ const App = () => {
       setPosts(json.posts);
     };
     fetchData();
-  }, []);
+  }, [resetPosts]);
 
   const categories = getUniqueCategoryNames(posts);
 
@@ -24,6 +25,8 @@ const App = () => {
 
     if (filteredPosts && filteredPosts.length > 0) {
       setPosts([...filteredPosts]);
+    } else {
+      setResetPosts(true);
     }
   };
 
