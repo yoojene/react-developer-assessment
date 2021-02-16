@@ -9,11 +9,11 @@ const App = () => {
   let [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async() => {
+    const fetchData = async () => {
       const res = await fetch('/api/posts');
       const json = await res.json();
-      setPosts(json.posts)
-    }
+      setPosts(json.posts);
+    };
     fetchData();
   }, []);
 
@@ -21,16 +21,15 @@ const App = () => {
 
   const handleCategoryChange = (category) => {
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
-   
-    if (filteredPosts && filteredPosts.length > 0) {
-       setPosts([...filteredPosts])
-    } 
-  }
 
+    if (filteredPosts && filteredPosts.length > 0) {
+      setPosts([...filteredPosts]);
+    }
+  };
 
   return (
     <>
-    {posts.length}
+      {posts.length}
       <header>
         <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
       </header>
