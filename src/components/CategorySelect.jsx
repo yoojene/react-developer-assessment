@@ -1,8 +1,11 @@
 import React from 'react';
 
-const CategorySelect = ({ categories }) => {
+const CategorySelect = ({ categories, onCategoryChange }) => {
+  const handleSelectChange = (e) => {
+    onCategoryChange(e.target.value);
+  };
   return (
-    <select>
+    <select onChange={handleSelectChange}>
       {categories.map((category, i) => (
         <option key={i} value={category}>
           {category}

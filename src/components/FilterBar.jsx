@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import CategorySelect from './CategorySelect';
-const FilterBar = ({ categories }) => {
+const FilterBar = ({ categories, onCategoryChange }) => {
+  const handleCategoryChange = (category) => {
+    onCategoryChange(category);
+  };
   return (
     <Navbar>
       <Nav.Item>
-        <CategorySelect categories={categories}></CategorySelect>
+        <CategorySelect
+          onCategoryChange={handleCategoryChange}
+          categories={categories}
+        ></CategorySelect>
       </Nav.Item>
     </Navbar>
   );

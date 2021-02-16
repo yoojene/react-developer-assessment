@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 import FilterBar from './FilterBar';
 import Book from './Book';
 
-const BookList = ({ posts, categories }) => {
+const BookList = ({ posts, categories, onCategoryChange }) => {
+  const handleCategoryChange = (category) => {
+    onCategoryChange(category);
+  };
+
   return (
     <>
       <header>
-        <FilterBar categories={categories}></FilterBar>
+        <FilterBar
+          onCategoryChange={handleCategoryChange}
+          categories={categories}
+        ></FilterBar>
       </header>
       <section>
         {posts.map((post) => (

@@ -3,6 +3,8 @@ import BookList from './BookList';
 import cx from 'classnames';
 import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
+import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategory';
+
 const App = () => {
   let [posts, setPosts] = useState([]);
 
@@ -14,18 +16,30 @@ const App = () => {
 
   const categories = getUniqueCategoryNames(posts);
 
+  const handleCategoryChange = (category) => {
+    const filteredPosts = getFilteredPostsFromCategory(category, posts);
+
+    if (filteredPosts && filteredPosts.length > 0) {
+      setPosts(filteredPosts);
+    }
+  }
+
   return (
     <>
+    {posts.length}
       <header>
         <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
       </header>
-      <BookList categories={categories} posts={posts}></BookList>
+      <BookList
+        onCategoryChange={handleCategoryChange}
+        categories={categories}
+        posts={posts}
+      ></BookList>
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
       </footer>
     </>
   );
 };
-
 
 export default App;
