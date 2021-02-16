@@ -20,12 +20,13 @@ const App = () => {
   const categories = getUniqueCategoryNames(posts);
 
   const handleCategoryChange = (category) => {
-    const filteredPosts = getFilteredPostsFromCategory(category, posts);
-
+    const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
+   
     if (filteredPosts && filteredPosts.length > 0) {
-      setPosts(filteredPosts);
-    }
+       setPosts([...filteredPosts])
+    } 
   }
+
 
   return (
     <>
@@ -37,6 +38,7 @@ const App = () => {
         onCategoryChange={handleCategoryChange}
         categories={categories}
         posts={posts}
+        // filteredPosts={filteredPosts}
       ></BookList>
       <footer>
         <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>

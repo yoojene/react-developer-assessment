@@ -8,7 +8,8 @@ const getFilteredPostsFromCategory = (category, posts) => {
     });
   });
 
-  return filteredPosts;
+  // Ensure only unique posts are returned (some duplicate categories)
+  return new Set(filteredPosts);
 };
 
 export default getFilteredPostsFromCategory;
