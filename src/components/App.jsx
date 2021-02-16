@@ -26,7 +26,7 @@ const App = () => {
     if (filteredPosts && filteredPosts.length > 0) {
       setPosts([...filteredPosts]);
     } else {
-      setResetPosts(true);
+      resetPosts ? setResetPosts(false) : setResetPosts(true);
     }
   };
 
