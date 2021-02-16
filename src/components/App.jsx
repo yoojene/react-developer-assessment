@@ -9,9 +9,12 @@ const App = () => {
   let [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('/api/posts')
-      .then((res) => res.json())
-      .then((json) => setPosts(json.posts));
+    const fetchData = async() => {
+      const res = await fetch('/api/posts');
+      const json = await res.json();
+      setPosts(json.posts)
+    }
+    fetchData();
   }, []);
 
   const categories = getUniqueCategoryNames(posts);
