@@ -10,15 +10,15 @@ import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
 import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategory';
 import timeout from '../helpers/timeout';
-import { Category } from '../model/types';
+import { Category, IPost } from '../model/types';
 
 const App = () => {
-  const [posts, setPosts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [resetPosts, setResetPosts] = useState(false);
-  const [offset, setOffset] = useState(0);
-  const [perPage] = useState(5);
-  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = React.useState<IPost[]>([]);
+  const [categories, setCategories] = React.useState<string[]>([]);
+  const [resetPosts, setResetPosts] = React.useState(false);
+  const [offset, setOffset] = React.useState(0);
+  const [perPage] = React.useState(5);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +38,7 @@ const App = () => {
     setCategories(getUniqueCategoryNames(posts));
   }, [posts]);
 
-  const handleCategoryChange = (category: Category) => {
+  const handleCategoryChange = (category: string) => {
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
 
     if (filteredPosts && filteredPosts.length > 0) {
@@ -48,7 +48,7 @@ const App = () => {
     }
   };
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     setOffset(offset + 5);
     setCategories(getUniqueCategoryNames(posts));
   };

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler }from 'react';
 import Button from 'react-bootstrap/Button';
 import cx from 'classnames';
-import styles from './styles/LoadMoreButton.module.css';
+import styles from '../styles/LoadMoreButton.module.css';
 
 type Props = {
   onButtonClick: MouseEventHandler
