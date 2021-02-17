@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Author from './Author';
 import Card from 'react-bootstrap/Card';
 import { useParams, Link } from 'react-router-dom';

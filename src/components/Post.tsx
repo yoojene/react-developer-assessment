@@ -4,21 +4,21 @@ import Fade from 'react-reveal/Fade';
 import { useHistory } from 'react-router-dom';
 import Author from './Author';
 import cx from 'classnames';
-import styles from '../styles/Book.module.css';
+import styles from '../styles/Post.module.css';
 import { Post } from '../model/types';
 
-type BookProps = {
+type PostProps = {
   post: Post
 }
-export const Book = ({ post }: BookProps) => {
+export const Post = ({ post }: PostProps) => {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push(`/books/${post.id}`);
+    history.push(`/Posts/${post.id}`);
   };
   return (
     <Fade>
-      <Card className={cx(styles.Book)} onClick={handleClick}>
+      <Card className={cx(styles.Post)} onClick={handleClick}>
         <Card.Title>
           <Author author={post.author}></Author>
         </Card.Title>
