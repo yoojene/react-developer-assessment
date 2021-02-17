@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Fade from 'react-reveal/Fade';
 import Author from './Author';
 import Card from 'react-bootstrap/Card';
 import { useParams, Link } from 'react-router-dom';
@@ -13,11 +14,11 @@ const PostDetails = ({ posts }) => {
   const postDetails = posts.find((post) => post.id === postId);
   console.log(postDetails);
   return (
+    <Fade>
     <Card>
       <Card.Title>
         <Author author={postDetails.author}></Author>
       </Card.Title>
-
       <Card.Body>
         <Card.Title>{postDetails.title}</Card.Title>
         <Card.Text>{postDetails.summary}</Card.Text>
@@ -27,6 +28,7 @@ const PostDetails = ({ posts }) => {
         <Link to="/">Back</Link>
       </Card.Footer>
     </Card>
+    </Fade>
   );
 };
 
