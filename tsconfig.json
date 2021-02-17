@@ -25,5 +25,5 @@
   },
   "include": [
     "src"
-  ]
+, "craco.config.js"  ]
 }
