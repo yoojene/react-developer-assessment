@@ -5,16 +5,16 @@ import Fade from 'react-reveal/Fade';
 import { useHistory } from 'react-router-dom';
 import Author from './Author';
 import cx from 'classnames';
-import styles from '../styles/Book.module.css';
-const Book = ({ post }) => {
+import styles from '../styles/Post.module.css';
+const Post = ({ post }) => {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push(`/books/${post.id}`);
+    history.push(`/posts/${post.id}`);
   };
   return (
     <Fade>
-      <Card className={cx(styles.Book)} onClick={handleClick}>
+      <Card className={cx(styles.Post)} onClick={handleClick}>
         <Card.Title>
           <Author author={post.author}></Author>
         </Card.Title>
@@ -27,9 +27,9 @@ const Book = ({ post }) => {
   );
 };
 
-Book.propTypes = {
+Post.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
 };
 
-export default Book;
+export default Post;

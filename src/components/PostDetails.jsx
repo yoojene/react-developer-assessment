@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import { useParams, Link } from 'react-router-dom';
 import formatDate from '../helpers/dateFormatter';
 
-const BookDetails = ({ posts }) => {
+const PostDetails = ({ posts }) => {
   console.log(posts);
 
   let { postId } = useParams();
@@ -30,11 +30,11 @@ const BookDetails = ({ posts }) => {
   );
 };
 
-BookDetails.propTypes = {
+PostDetails.propTypes = {
   author: PropTypes.string,
   title: PropTypes.string,
   summary: PropTypes.string,
   publishDate: PropTypes.string,
 };
 
-export default BookDetails;
+export default PostDetails;

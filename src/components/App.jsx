@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import BookList from './BookList';
+import PostList from './PostList';
 import LoadMoreButton from './LoadMoreButton';
-import BookDetails from './BookDetails';
+import PostDetails from './PostDetails';
 import Loading from './Loading';
 import Fade from 'react-reveal/Fade';
 import cx from 'classnames';
@@ -56,23 +56,23 @@ const App = () => {
     <Router>
       <Fade>
         <header>
-          <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
+          <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Blog</h1>
         </header>
         <main>
         <Switch>
-          <Route path="/books/:postId">
-            <BookDetails posts={posts}></BookDetails>
+          <Route path="/posts/:postId">
+            <PostDetails posts={posts}></PostDetails>
           </Route>
           <Route exact path="/">
             {isLoading ? (
               <Loading></Loading>
             ) : (
               <>
-                <BookList
+                <PostList
                   onCategoryChange={handleCategoryChange}
                   categories={categories}
                   posts={posts}
-                ></BookList>
+                ></PostList>
               </>
             )}
             <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>

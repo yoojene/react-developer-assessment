@@ -1,18 +1,18 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import FilterBar from './FilterBar';
-import Book from './Book';
+import Post from './Post';
 import cx from 'classnames';
-import styles from '../styles/BookList.module.css';
+import styles from '../styles/PostList.module.css';
 
-const BookList = ({ posts, categories, onCategoryChange }) => {
+const PostList = ({ posts, categories, onCategoryChange }) => {
   const handleCategoryChange = (category) => {
     onCategoryChange(category);
   };
 
   return (
     <>
-      <header className={cx(styles.BookListHeader)}>
+      <header className={cx(styles.PostListHeader)}>
         <FilterBar
           onCategoryChange={handleCategoryChange}
           categories={categories}
@@ -20,15 +20,15 @@ const BookList = ({ posts, categories, onCategoryChange }) => {
       </header>
       <section>
         {posts.map((post) => (
-          <Book key={post.id} post={post}></Book>
+          <Post key={post.id} post={post}></Post>
         ))}
       </section>
     </>
   );
 };
 
-BookList.propTypes = {
+PostList.propTypes = {
   posts: PropTypes.array,
 };
 
-export default BookList;
+export default PostList;
