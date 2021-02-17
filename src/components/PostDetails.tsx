@@ -1,5 +1,5 @@
 import React from 'react';
-import Author from './Author';
+import {Author} from './Author';
 import Card from 'react-bootstrap/Card';
 import { useParams, Link } from 'react-router-dom';
 import formatDate from '../helpers/dateFormatter';
@@ -8,10 +8,13 @@ import { IPost } from '../model/types';
 type Props = {
   posts: IPost[]
 }
+interface ParamTypes {
+  postId: string
+}
 export const BookDetails: React.FC<Props> = ({ posts }) => {
   console.log(posts);
 
-  let { postId } = useParams();
+  let { postId } = useParams<ParamTypes>();
 
   const postDetails = posts.find((post) => post.id === postId);
   return (

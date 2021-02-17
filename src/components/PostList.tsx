@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler } from 'react';
 import { FilterBar }  from './FilterBar';
-import {Book} from './Book';
+import {Post} from './Post';
 import cx from 'classnames';
 import styles from '../styles/PostList.module.css';
 import { Category, IPost } from '../model/types';
@@ -25,7 +25,7 @@ export const PostList: React.FC<Props> = ({ posts, categories, onCategoryChange 
       </header>
       <section>
         {posts.map((post) => (
-          <Book key={post.id} post={post}></Book>
+          <Post key={post.id} post={post}></Post>
         ))}
       </section>
     </>
