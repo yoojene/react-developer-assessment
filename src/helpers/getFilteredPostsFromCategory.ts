@@ -1,5 +1,7 @@
-const getFilteredPostsFromCategory = (category, posts) => {
-  const filteredPosts = [];
+import { IPost } from "../model/types";
+
+export const getFilteredPostsFromCategory = (category: string, posts: IPost[]) => {
+  const filteredPosts: IPost[] = [];
   posts.forEach((post, i) => {
     post.categories.forEach((cat) => {
       if (cat.name === category) {
@@ -12,4 +14,3 @@ const getFilteredPostsFromCategory = (category, posts) => {
   return new Set(filteredPosts);
 };
 
-export default getFilteredPostsFromCategory;
