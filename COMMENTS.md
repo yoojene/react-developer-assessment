@@ -5,7 +5,7 @@
 - Built using react-bootstrap and a very small amount of Ionic (one component).
 - Includess pagination, filtering and animations using react-reveal
 - Client-side routing includes navgiation back and forth to a detail page
-- `typescript` branch has beginnings of conversion to TypeScript
+- `typescript` branch has a conversion of the app to TypeScript
 
 ### Bugs / TODOs
 
