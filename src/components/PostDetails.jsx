@@ -7,12 +7,10 @@ import { useParams, Link } from 'react-router-dom';
 import formatDate from '../helpers/dateFormatter';
 
 const PostDetails = ({ posts }) => {
-  console.log(posts);
 
   let { postId } = useParams();
 
   const postDetails = posts.find((post) => post.id === postId);
-  console.log(postDetails);
   return (
     <Fade>
       <Card>
