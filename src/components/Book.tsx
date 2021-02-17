@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Fade from 'react-reveal/Fade';
 import { useHistory } from 'react-router-dom';
 import Author from './Author';
 import cx from 'classnames';
 import styles from '../styles/Book.module.css';
-const Book = ({ post }) => {
+import { Post } from '../model/types';
+
+type BookProps = {
+  post: Post
+}
+export const Book = ({ post }: BookProps) => {
   let history = useHistory();
 
   const handleClick = () => {
@@ -26,10 +30,3 @@ const Book = ({ post }) => {
     </Fade>
   );
 };
-
-Book.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string,
-};
-
-export default Book;

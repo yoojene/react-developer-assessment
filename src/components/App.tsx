@@ -1,15 +1,16 @@
-import { React, useState, useEffect } from 'react';
+import  React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import BookList from './BookList';
-import LoadMoreButton from './LoadMoreButton';
-import BookDetails from './BookDetails';
-import Loading from './Loading';
+import {BookList} from './BookList';
+import {LoadMoreButton} from './LoadMoreButton';
+import {BookDetails} from './BookDetails';
+import {Loading} from './Loading';
 import Fade from 'react-reveal/Fade';
 import cx from 'classnames';
 import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
 import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategory';
 import timeout from '../helpers/timeout';
+import { Category } from '../model/types';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -37,7 +38,7 @@ const App = () => {
     setCategories(getUniqueCategoryNames(posts));
   }, [posts]);
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: Category) => {
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
 
     if (filteredPosts && filteredPosts.length > 0) {

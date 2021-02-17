@@ -1,12 +1,17 @@
-import { React } from 'react';
-import PropTypes from 'prop-types';
-import FilterBar from './FilterBar';
-import Book from './Book';
+import React, { ChangeEventHandler } from 'react';
+import { FilterBar }  from './FilterBar';
+import {Book} from './Book';
 import cx from 'classnames';
 import styles from '../styles/BookList.module.css';
+import { Category, Post } from '../model/types';
 
-const BookList = ({ posts, categories, onCategoryChange }) => {
-  const handleCategoryChange = (category) => {
+type BookListProps = {
+  posts: Post[],
+  categories: Category[],
+  onCategoryChange: ChangeEventHandler
+}
+export const BookList = ({ posts, categories, onCategoryChange }: BookListProps) => {
+  const handleCategoryChange = (category: React.ChangeEvent<HTMLSelectElement>) => {
     onCategoryChange(category);
   };
 
@@ -27,8 +32,3 @@ const BookList = ({ posts, categories, onCategoryChange }) => {
   );
 };
 
-BookList.propTypes = {
-  posts: PropTypes.array,
-};
-
-export default BookList;

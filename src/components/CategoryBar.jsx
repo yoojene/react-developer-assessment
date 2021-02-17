@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Nav from 'react-bootstrap/Nav';
 
-const CategoryBar = ({ posts }) => {
+const CategoryBar = ({ categories }) => {
+  console.log(categories);
+
   return (
     <Nav fill>
-      {posts.map((category) => (
+      {categories.map((category) => (
         <Nav.Item key={category.id}>{category.name}</Nav.Item>
       ))}
     </Nav>

@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { IonAvatar } from '@ionic/react';
 import cx from 'classnames';
 import styles from '../styles/Author.module.css';
+import { PostAuthor } from '../model/types'
 
-const Author = ({ author }) => {
+type AuthorProps = {
+  author: PostAuthor
+}
+export const Author = ({ author }: AuthorProps) => {
   return (
     <div className={cx(styles.Author)}>
       <IonAvatar>
@@ -15,9 +18,3 @@ const Author = ({ author }) => {
   );
 };
 
-Author.propTypes = {
-  name: PropTypes.string,
-  avatar: PropTypes.string,
-};
-
-export default Author;
