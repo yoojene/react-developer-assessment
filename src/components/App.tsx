@@ -60,7 +60,7 @@ const App = () => {
           <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
         </header>
         <Switch>
-          <Route path="/books/:postId">
+          <Route path="/posts/:postId">
             <BookDetails posts={posts}></BookDetails>
           </Route>
 

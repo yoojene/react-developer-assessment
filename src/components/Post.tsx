@@ -2,19 +2,19 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Fade from 'react-reveal/Fade';
 import { useHistory } from 'react-router-dom';
-import Author from './Author';
+import { Author }  from './Author';
 import cx from 'classnames';
 import styles from '../styles/Post.module.css';
-import { Post } from '../model/types';
+import { IPost } from '../model/types';
 
-type PostProps = {
-  post: Post
+type Props = {
+  post: IPost
 }
-export const Post = ({ post }: PostProps) => {
+export const Post: React.FC<Props> = ({ post }) => {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push(`/Posts/${post.id}`);
+    history.push(`/posts/${post.id}`);
   };
   return (
     <Fade>

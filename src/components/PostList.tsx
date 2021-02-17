@@ -3,14 +3,14 @@ import { FilterBar }  from './FilterBar';
 import {Book} from './Book';
 import cx from 'classnames';
 import styles from '../styles/PostList.module.css';
-import { Category, Post } from '../model/types';
+import { Category, IPost } from '../model/types';
 
-type PostListProps = {
-  posts: Post[],
+type Props = {
+  posts: IPost[],
   categories: Category[],
   onCategoryChange: ChangeEventHandler
 }
-export const PostList = ({ posts, categories, onCategoryChange }: PostListProps) => {
+export const PostList: React.FC<Props> = ({ posts, categories, onCategoryChange }) => {
   const handleCategoryChange = (category: React.ChangeEvent<HTMLSelectElement>) => {
     onCategoryChange(category);
   };

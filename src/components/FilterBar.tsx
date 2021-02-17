@@ -4,11 +4,11 @@ import Nav from 'react-bootstrap/Nav';
 import { CategorySelect } from './CategorySelect';
 import { Category } from '../model/types';
 
-type FilterBarProps = {
+type Props = {
   categories: Category[],
   onCategoryChange: MouseEventHandler
 }
-export const FilterBar = ({ categories, onCategoryChange }: FilterBarProps) => {
+export const FilterBar: React.FC<Props> = ({ categories, onCategoryChange }) => {
   const handleCategoryChange = (category : React.MouseEvent<Element, MouseEvent>) => {
     onCategoryChange(category);
   };

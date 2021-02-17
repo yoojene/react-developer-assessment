@@ -2,11 +2,11 @@ import React, { ChangeEventHandler, useState } from 'react';
 import { Category } from '../model/types';
 
 
-type CategorySelectProps = {
+type Props = {
   categories: Category[],
   onCategoryChange: ChangeEventHandler
 }
-export const CategorySelect = ({ categories, onCategoryChange }: CategorySelectProps) => {
+export const CategorySelect: React.FC<Props>  = ({ categories, onCategoryChange }) => {
   const [value, setValue] = useState('Select Categories');
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

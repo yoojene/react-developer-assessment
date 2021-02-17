@@ -4,10 +4,10 @@ import cx from 'classnames';
 import styles from '../styles/Author.module.css';
 import { PostAuthor } from '../model/types'
 
-type AuthorProps = {
+type Props = {
   author: PostAuthor
 }
-export const Author = ({ author }: AuthorProps) => {
+export const Author : React.FC<Props>= ({ author }) => {
   return (
     <div className={cx(styles.Author)}>
       <IonAvatar>

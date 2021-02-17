@@ -3,10 +3,10 @@ import Button from 'react-bootstrap/Button';
 import cx from 'classnames';
 import styles from './styles/LoadMoreButton.module.css';
 
-type LoadMoreButtonProps = {
+type Props = {
   onButtonClick: MouseEventHandler
 }
-export const LoadMoreButton = ({ onButtonClick }: LoadMoreButtonProps) => {
+export const LoadMoreButton: React.FC<Props> = ({ onButtonClick }) => {
   const handleClick = (event: React.MouseEvent<Element, MouseEvent>) => {
     onButtonClick(event);
   };

@@ -3,12 +3,12 @@ import Author from './Author';
 import Card from 'react-bootstrap/Card';
 import { useParams, Link } from 'react-router-dom';
 import formatDate from '../helpers/dateFormatter';
-import { Post } from '../model/types';
+import { IPost } from '../model/types';
 
-type BookDetailsProps = {
-  posts: Post[]
+type Props = {
+  posts: IPost[]
 }
-export const BookDetails = ({ posts }: BookDetailsProps) => {
+export const BookDetails: React.FC<Props> = ({ posts }) => {
   console.log(posts);
 
   let { postId } = useParams();
