@@ -15,19 +15,19 @@ const PostDetails = ({ posts }) => {
   console.log(postDetails);
   return (
     <Fade>
-    <Card>
-      <Card.Title>
-        <Author author={postDetails.author}></Author>
-      </Card.Title>
-      <Card.Body>
-        <Card.Title>{postDetails.title}</Card.Title>
-        <Card.Text>{postDetails.summary}</Card.Text>
-        <Card.Text>{formatDate(postDetails.publishDate)}</Card.Text>
-      </Card.Body>
-      <Card.Footer>
-        <Link to="/">Back</Link>
-      </Card.Footer>
-    </Card>
+      <Card>
+        <Card.Title>
+          <Author author={postDetails.author}></Author>
+        </Card.Title>
+        <Card.Body>
+          <Card.Title>{postDetails.title}</Card.Title>
+          <Card.Text>{postDetails.summary}</Card.Text>
+          <Card.Text>{formatDate(postDetails.publishDate)}</Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <Link to="/">Back</Link>
+        </Card.Footer>
+      </Card>
     </Fade>
   );
 };

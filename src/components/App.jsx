@@ -59,25 +59,25 @@ const App = () => {
           <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Blog</h1>
         </header>
         <main>
-        <Switch>
-          <Route path="/posts/:postId">
-            <PostDetails posts={posts}></PostDetails>
-          </Route>
-          <Route exact path="/">
-            {isLoading ? (
-              <Loading></Loading>
-            ) : (
-              <>
-                <PostList
-                  onCategoryChange={handleCategoryChange}
-                  categories={categories}
-                  posts={posts}
-                ></PostList>
-              </>
-            )}
-            <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route path="/posts/:postId">
+              <PostDetails posts={posts}></PostDetails>
+            </Route>
+            <Route exact path="/">
+              {isLoading ? (
+                <Loading></Loading>
+              ) : (
+                <>
+                  <PostList
+                    onCategoryChange={handleCategoryChange}
+                    categories={categories}
+                    posts={posts}
+                  ></PostList>
+                </>
+              )}
+              <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
+            </Route>
+          </Switch>
         </main>
         <footer>
           <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
