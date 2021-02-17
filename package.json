@@ -47,7 +47,6 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "6.1.1",
     "@types/react-router-dom": "5.1.7",
     "awesome-typescript-loader": "5.2.1",
     "miragejs": "^0.1.41",
