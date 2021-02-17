@@ -1,22 +1,21 @@
-import React, { ChangeEventHandler, useState } from 'react';
-import { Category } from '../model/types';
+import React, { ChangeEventHandler } from 'react';
 
 
 type Props = {
-  categories: Category[],
+  categories: string[],
   onCategoryChange: ChangeEventHandler
 }
 export const CategorySelect: React.FC<Props>  = ({ categories, onCategoryChange }) => {
-  const [value, setValue] = useState('Select Categories');
+  const [value, setValue] = React.useState('Select Categories');
 
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
-    onCategoryChange(e);
+  const handleSelectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
+    setValue(evt.target.value);
+    onCategoryChange(evt);
   };
   return (
     <select onChange={handleSelectChange} value={value}>
       {categories.map((category, i) => (
-        <option key={i} value={category.name}>
+        <option key={i} value={category}>
           {category}
         </option>
       ))}

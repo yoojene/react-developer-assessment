@@ -1,4 +1,4 @@
-import  React, { useState, useEffect } from 'react';
+import  React  from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {PostList} from './PostList';
 import {LoadMoreButton} from './LoadMoreButton';
@@ -10,7 +10,7 @@ import styles from '../styles/App.module.css';
 import getUniqueCategoryNames from '../helpers/getUniqueCategoryNames';
 import getFilteredPostsFromCategory from '../helpers/getFilteredPostsFromCategory';
 import timeout from '../helpers/timeout';
-import { Category, IPost } from '../model/types';
+import { IPost } from '../model/types';
 
 const App = () => {
   const [posts, setPosts] = React.useState<IPost[]>([]);
@@ -20,7 +20,7 @@ const App = () => {
   const [perPage] = React.useState(5);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       await timeout(1000);
@@ -34,11 +34,12 @@ const App = () => {
     fetchData();
   }, [resetPosts, offset, perPage]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setCategories(getUniqueCategoryNames(posts));
   }, [posts]);
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
+    const category = evt.target.value;
     const [...filteredPosts] = getFilteredPostsFromCategory(category, posts);
 
     if (filteredPosts && filteredPosts.length > 0) {

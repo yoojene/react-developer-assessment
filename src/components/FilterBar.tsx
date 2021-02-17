@@ -1,16 +1,16 @@
-import React, { MouseEventHandler } from 'react';
+import React, { ChangeEventHandler } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { CategorySelect } from './CategorySelect';
-import { Category } from '../model/types';
 
 type Props = {
-  categories: Category[],
-  onCategoryChange: MouseEventHandler
+  categories: string[],
+  onCategoryChange: ChangeEventHandler
 }
 export const FilterBar: React.FC<Props> = ({ categories, onCategoryChange }) => {
-  const handleCategoryChange = (category : React.MouseEvent<Element, MouseEvent>) => {
-    onCategoryChange(category);
+  const handleCategoryChange = (evt : React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(evt.target.value)
+    onCategoryChange(evt);
   };
   return (
     <Navbar>
