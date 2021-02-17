@@ -12,7 +12,6 @@ interface ParamTypes {
   postId: string
 }
 export const PostDetails: React.FC<Props> = ({ posts }) => {
-  console.log(posts);
 
   let { postId } = useParams<ParamTypes>();
 
