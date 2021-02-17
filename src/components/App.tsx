@@ -2,7 +2,7 @@ import  React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {PostList} from './PostList';
 import {LoadMoreButton} from './LoadMoreButton';
-import {BookDetails} from './PostDetails';
+import {PostDetails} from './PostDetails';
 import {Loading} from './Loading';
 import Fade from 'react-reveal/Fade';
 import cx from 'classnames';
@@ -61,7 +61,7 @@ const App = () => {
         </header>
         <Switch>
           <Route path="/posts/:postId">
-            <BookDetails posts={posts}></BookDetails>
+            <PostDetails posts={posts}></PostDetails>
           </Route>
 
           <Route exact path="/">
