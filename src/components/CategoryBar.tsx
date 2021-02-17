@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Nav from 'react-bootstrap/Nav';
+import { Category } from '../model/types';
 
-const CategoryBar = ({ categories }) => {
-  console.log(categories);
+type Props = {
+  categories: Category[]
+}
+const CategoryBar : React.FC<Props> = ({ categories }) => {
 
   return (
     <Nav fill>
@@ -12,11 +14,6 @@ const CategoryBar = ({ categories }) => {
       ))}
     </Nav>
   );
-};
-
-CategoryBar.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
 };
 
 export default CategoryBar;
