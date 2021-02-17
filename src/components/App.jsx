@@ -58,11 +58,11 @@ const App = () => {
         <header>
           <h1 className={cx(styles.AppHeader)}>NetConstruct Robot Books</h1>
         </header>
+        <main>
         <Switch>
           <Route path="/books/:postId">
             <BookDetails posts={posts}></BookDetails>
           </Route>
-
           <Route exact path="/">
             {isLoading ? (
               <Loading></Loading>
@@ -78,6 +78,7 @@ const App = () => {
             <LoadMoreButton onButtonClick={handleClick}></LoadMoreButton>
           </Route>
         </Switch>
+        </main>
         <footer>
           <h6 className={cx(styles.AppFooter)}>Eugene Cross</h6>
         </footer>
