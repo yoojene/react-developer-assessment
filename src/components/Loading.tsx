@@ -9,3 +9,4 @@ export const Loading:React.FC = () => {
       <img className={cx(styles.Spinner)} src={spinningBalls} alt="" />
     </div>
   );
+}
